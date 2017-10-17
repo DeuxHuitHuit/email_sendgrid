@@ -32,9 +32,9 @@ class SendGridGateway extends EmailGateway
         
         // only set HTML body if it exists
         if (!empty($this->_text_html)) {
-            $content = new SendGrid\Content("text/plain", $this->_text_html);
+            $content = new SendGrid\Content("text/html", $this->_text_html);
         } else {
-            $content = new SendGrid\Content("text/html", $this->_text_plain);
+            $content = new SendGrid\Content("text/plain", $this->_text_plain);
         }
         
         $apiKey = Symphony::Configuration()->get('api_key', self::SETTINGS_GROUP);
