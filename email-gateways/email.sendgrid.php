@@ -77,17 +77,17 @@ class SendGridGateway extends EmailGateway
 
         $label = Widget::Label(__('From Name'));
         $label->setAttribute('class', 'column');
-        $label->appendChild(Widget::Input('settings[email_sendgrid][from_name]', Symphony::Configuration()->get('from_name', self::SETTINGS_GROUP)));
+        $label->appendChild(Widget::Input('settings[email_sendgrid][from_name]', General::sanitize(Symphony::Configuration()->get('from_name', self::SETTINGS_GROUP))));
         $div->appendChild($label);
 
         $label = Widget::Label(__('From Address'));
         $label->setAttribute('class', 'column');
-        $label->appendChild(Widget::Input('settings[email_sendgrid][from_address]', Symphony::Configuration()->get('from_address', self::SETTINGS_GROUP)));
+        $label->appendChild(Widget::Input('settings[email_sendgrid][from_address]', General::sanitize(Symphony::Configuration()->get('from_address', self::SETTINGS_GROUP))));
         $div->appendChild($label);
 
         $label = Widget::Label(__('API Key'));
         $label->setAttribute('class', 'column');
-        $label->appendChild(Widget::Input('settings[email_sendgrid][api_key]', Symphony::Configuration()->get('api_key', self::SETTINGS_GROUP)));
+        $label->appendChild(Widget::Input('settings[email_sendgrid][api_key]', General::sanitize(Symphony::Configuration()->get('api_key', self::SETTINGS_GROUP))));
         $div->appendChild($label);
 
         $group->appendChild($div);
